@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito Sans' , 'Arial', sans-serif;
+    background-color: #121212; /* Dark background color */
+    color: #fff; /* Text color */
+    text-align: center; /* Center align text */
+}
+
+/* Add a title style */
+h1 {
+    color: #ffffff; /* Light blue color */
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #4CAF50; 
+    color: #fff; 
+    padding: 10px; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+.contact {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #1e1e1e; /* Darker background for contacts */
+}
+
+#contactInfo {
+    background-color: #333;
+    color: #fff;
+    width: 40vh;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.delete-btn {
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#contactCount {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: #333;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #0000001a;
+}
+
+#contactDisplaySection {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px; /* Adjust the gap between grid items */
+    justify-content: center; /* Center the grid items horizontally */
+    padding-left: 120px;
+    padding-right: 100px;
+    margin-left: 14vh;
+    margin-right: 11vh;
+}
+
+.contact-grid-item {
+    position: relative;
+    border-radius: 5px;
+    padding: 10px; /* Adjust padding */
+    margin: 0;
+    background-color: #333; /* Darker background for grid items */
+    text-align: left; /* Align text to the left within grid items */
+    max-width: 300px; /* Set a maximum width for grid items */
+    margin-bottom: 35px; /* Adjust margin at the bottom for spacing */
+}
+
+.delete-message {
+    position: absolute;
+    color: #ff0000cc;
+    padding: 5px;
+    display: none;
+    cursor: pointer;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px; /* Adjust the gap between grid items */
+}

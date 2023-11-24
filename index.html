@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact List</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./assets/style/index.css" media="all">
+    </head>
+<body>
+    <h1>My Contacts</h1>
+    <form id="contactForm">
+        <label for="contactInfo"></label>
+        <input type="text" id="contactInfo" required placeholder="Contact info (name, city, email)">
+        
+        <button type="button" id="addContactBtn">Add Contact</button>
+    </form>
+
+    <div id="contactDisplaySection"></div>
+
+    <div id="contactCount"></div>
+
+    <script type="module" src="./assets/script/app.js"></script>
+    <script type="module" src="./assets/script/contact.js"></script>
+</body>
+</html>
