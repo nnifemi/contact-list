@@ -23,9 +23,5 @@ Visit the live demo of the Contact List website: [Contact List Demo](https://nni
 1. Open the [Contact List Demo](https://nnifemi.github.io/contact-list/) in your web browser.
 2. Use the input field to add new contacts (format: Name, City, Email).
 3. Click the "Add Contact" button to add a contact.
-4. View and manage your contacts on the page.
-5. To delete a contact, click on the "Click to delete" message.
+4. To delete a contact, click on the contact.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
