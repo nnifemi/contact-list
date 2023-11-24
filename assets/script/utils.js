@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearMessage.style.color = 'red';
 
         setTimeout(() => {
-            clearMessage.textContent = 'Click Enter to clear contacts';
+            clearMessage.textContent = 'Click Enter to clear all contacts';
             clearMessage.style.color = '';
         }, 3000);
     }
