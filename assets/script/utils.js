@@ -14,7 +14,10 @@ export function fetchContacts() {
             contacts.sort((a, b) => a.name.localeCompare(b.name));
             listContacts(contacts);
         })
-        .catch(error => console.error('Error fetching contacts:', error));
+        .catch(error => {
+            console.error('Error fetching contacts:', error);
+            displayMessage('Error fetching contacts. Please try again later.', 'error');
+        });
 }
 
 const MAX_SAVABLE_CONTACTS = 6;
@@ -24,38 +27,38 @@ export function addContact() {
     const contactInfo = contactInfoInput.value.trim();
 
     if (!contactInfo || !contactInfo.includes(',')) {
-        alert('Invalid contact information format. Please use the format: Name, City, Email');
+        displayMessage('Invalid contact information format. Please use the format: Name, City, Email', 'error');
         return;
     }
 
     const [name, city, email] = contactInfo.split(',').map(item => item.trim());
 
     if (!name || !city || !email) {
-        alert('Invalid contact information format. Please use the format: Name, City, Email');
+        displayMessage('Invalid contact information format. Please use the format: Name, City, Email', 'error');
         return;
     }
 
     const nameRegex = /^[a-zA-Z]+ [a-zA-Z]+$/;
     if (!nameRegex.test(name)) {
-        alert('Invalid name format. Please use the format: First Last');
+        displayMessage('Invalid name format. Please use the format: First Last', 'error');
         return;
     }
 
     const cityRegex = /^[a-zA-Z]+ [a-zA-Z]+$/;
     if (!cityRegex.test(city)) {
-        alert('Invalid city format. Please use the format: City Part');
+        displayMessage('Invalid city format. Please use the format: City Part', 'error');
         return;
     }
 
     const emailRegex = /^\S+@\S+\.\S+$/;
     if (!emailRegex.test(email)) {
-        alert('Invalid email address');
+        displayMessage('Invalid email address', 'error');
         return;
     }
 
     const contactDisplaySection = document.getElementById('contactDisplaySection');
     if (contactDisplaySection.childElementCount >= MAX_SAVABLE_CONTACTS) {
-        alert('Maximum number of savable contacts reached (6)');
+        displayMessage('Maximum number of savable contacts reached (6)', 'error');
         return;
     }
 
@@ -107,6 +110,20 @@ function displayContactInfo(contact) {
     contactDisplaySection.insertBefore(contactDiv, existingContacts[insertIndex]);
 
     updateContactCount(contactDisplaySection.childElementCount);
+}
+
+function displayMessage(message, messageType) {
+    const messageContainer = document.getElementById('messageContainer');
+    const messageDiv = document.createElement('div');
+
+    messageDiv.textContent = message;
+    messageDiv.classList.add(messageType);
+
+    messageContainer.appendChild(messageDiv);
+
+    setTimeout(() => {
+        messageDiv.remove();
+    }, 3000);
 }
 
 export function listContacts(contacts) {
@@ -195,12 +212,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const contactDisplaySection = document.getElementById('contactDisplaySection');
         contactDisplaySection.innerHTML = '';
 
-        clearMessage.textContent = 'Contacts cleared!';
-        clearMessage.style.color = 'red';
+        displayMessage('Contacts cleared!', 'success');
 
         setTimeout(() => {
             clearMessage.textContent = 'Click Enter to clear all contacts';
-            clearMessage.style.color = '';
         }, 3000);
     }
 });
